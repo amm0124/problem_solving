@@ -4,7 +4,7 @@ import sys
 		x2=p2[0]
 		x3=p3[0]
 		y1=p1[1]
-		y2=p2[1]
+		y2=p2[1] 
 		y3=p3[1]
 		return x1*y2 + x2*y3 + x3*y1 - (x1*y3 + x3*y2 + x2*y1)
 	
