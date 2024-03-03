@@ -33,7 +33,7 @@ if __name__ == "__main__":
     for _ in range(t):
         k = int(input())
         k_values.append(k)
-        files = list(map(int, input().split()))
+        files = list(map(int, sys.stdin.readline().split()))
         files_list.append(files)
 
     fold_file(t, k_values, files_list)
