@@ -1,0 +1,24 @@
+import sys,math
+from collections import deque
+
+n,k=map(int,sys.stdin.readline().split())
+queue=deque()    
+queue.append((n,0))
+dp=[math.inf for _ in range(100001)]
+while queue :
+    position, weight = queue.popleft()
+    if position==k :
+        print(weight)
+        sys.exit()
+    if position-1>=0 :
+        if weight+1<dp[position-1] : 
+            dp[position]=weight+1
+            queue.append((position-1,weight+1))
+    if position+1<=100000 :
+        if weight+1<dp[position+1] : 
+            dp[position]=weight+1 
+            queue.append((position+1,weight+1))
+    if 2*position<=100000 and 2*position>=0 :
+        if weight+1<dp[position*2] : 
+            dp[position]=weight+1
+            queue.append((2*position,weight+1))
