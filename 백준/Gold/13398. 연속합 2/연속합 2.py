@@ -10,10 +10,9 @@ dp_reverse[0]=arr[-1]
 for i in range(1,n) : 
     dp[i]=max(dp[i-1]+arr[i],arr[i])
     dp_reverse[i]=max(arr[(n-1)-i] , dp_reverse[i-1] + arr[(n-1)-i])    
-#dp_reverse.reverse()
+dp_reverse.reverse()
 answer=max(dp)
 for i in range(1,n-1) :
-    if arr[i]<0 :
-        #answer=max(answer, dp[i-1] + dp_reverse[i+1])
-        answer=max(answer, dp[i-1] + dp_reverse[n-i-2])
+    answer=max(answer, dp[i-1] + dp_reverse[i+1])
+        #answer=max(answer, dp[i-1] + dp_reverse[n-i-2])
 print(answer)
