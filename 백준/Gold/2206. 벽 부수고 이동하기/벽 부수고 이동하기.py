@@ -19,14 +19,14 @@ while queue :
         for i in range(4) : #벽을 뚫고 간다
             next_x , next_y = now_x + dx[i] , now_y + dy[i]
             if next_x>=0 and next_x<n and next_y>=0 and next_y<m : #범위 밖이 아니면서
-                if matrix[next_x][next_y]==1 and visited[next_x][next_y][0] > visited[now_x][now_y][1] + 1 : # 벽 and 현재 간 것이 더 짧을 때 
+                if matrix[next_x][next_y]==1 and visited[next_x][next_y][0]==math.inf : # 벽 and 현재 간 것이 더 짧을 때 
                     queue.append((next_x, next_y, break_count-1))
                     visited[next_x][next_y][0]=visited[now_x][now_y][1]+1
     
     for i in range(4) : #벽을 뚫지 않고 그냥 감
         next_x , next_y = now_x + dx[i] , now_y + dy[i]
         if next_x>=0 and next_x<n and next_y>=0 and next_y<m : #범위 밖이 아니면서
-            if matrix[next_x][next_y]==0 and visited[next_x][next_y][break_count] > visited[now_x][now_y][break_count] + 1 : #현재 간 것이 더 짧을 때 
+            if matrix[next_x][next_y]==0 and visited[next_x][next_y][break_count] ==math.inf : #현재 간 것이 더 짧을 때 
                 queue.append((next_x, next_y, break_count))
                 visited[next_x][next_y][break_count]=visited[now_x][now_y][break_count]+1
 
